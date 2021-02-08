@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:**/{neverland,neverland.config,neverland-config,.neverlandrc}.{js}"
+    "workspaceContains:**/{neverland,neverland.config,neverland-config,.neverlandrc}.{js}",
+    "onCommand:jw-neverland-intellisense.helloWorld"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -44,5 +45,9 @@
     "prettier": "^2.2.1",
     "typescript": "^4.1.3",
     "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "yaml": "^2.0.0-3"
   }
 }
