@@ -1,7 +1,7 @@
 {
   "name": "jw-neverland-intellisense",
-	"displayName": "jw-neverland-intellisense",
-	"description": "",
+	"displayName": "JW Neverland Intellisense",
+	"description": "Intelligent tooling for JW Neverland Design System",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.53.0"
@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:jw-neverland-intellisense.helloWorld"
+        "workspaceContains:**/{neverland,neverland.config,neverland-config,.neverlandrc}.{js}"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
