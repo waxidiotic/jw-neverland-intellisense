@@ -18,7 +18,7 @@ type ColorCategoryName = keyof typeof COLOR_REPOS;
 
 type ColorCategory = Record<ColorCategoryName, ColorEntry>;
 
-type ColorsCollection = {
+export type ColorsCollection = {
   [key in ColorCategoryName]?: ColorCategory;
 };
 
