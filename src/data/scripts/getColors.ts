@@ -1,9 +1,26 @@
 import axios from "axios";
+import { parse } from "yaml";
 
-const SYSTEM_COLORS_URL =
-  "https://raw.githubusercontent.com/jwplayer/jw-design-library/master/dictionary/properties/color/system.yaml";
+const COLOR_REPOS = {
+  system:
+    "https://raw.githubusercontent.com/jwplayer/jw-design-library/master/dictionary/properties/color/system.yaml",
+  brand:
+    "https://raw.githubusercontent.com/jwplayer/jw-design-library/master/dictionary/properties/color/brand.yaml",
+};
+interface Color {
+  value: string;
+}
 
-export async function getColorsFromRepo(): Promise<any> {
-  const response = await axios.get(SYSTEM_COLORS_URL);
-  return response.data;
+type ColorCategory = {
+  [key in keyof typeof COLOR_REPOS]: Color;
+};
+interface ColorsCollection {
+  system?: ColorCategory;
+  brand?: ColorCategory;
+}
+export async function getColorsFromRepo(): Promise<ColorsCollection> {
+  const colors: ColorsCollection = {};
+  colors.system = parse((await axios.get(COLOR_REPOS.system)).data);
+  colors.brand = parse((await axios.get(COLOR_REPOS.brand)).data);
+  return colors;
 }

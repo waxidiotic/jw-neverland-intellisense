@@ -15,12 +15,11 @@ export function activate(context: vscode.ExtensionContext): void {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  const outputChannel = vscode.window.createOutputChannel("JW Neverland");
   const disposable = vscode.commands.registerCommand(
     "jw-neverland-intellisense.helloWorld",
     async () => {
       const colors = await getColorsFromRepo();
-      outputChannel.append(colors);
+      console.log(colors);
     }
   );
 
